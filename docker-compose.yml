@@ -12,6 +12,8 @@ services:
         MYSQL_DATABASE: ${MYSQL_DATABASE:-wordpress}
         MYSQL_USER: ${MYSQL_USER:-wordpress}
         MYSQL_PASSWORD: ${MYSQL_PASSWORD:-wordpress}
+    labels:
+      - traefik.enable=false
     volumes:
       - dbdata:/var/lib/mysql
     networks:
@@ -29,6 +31,8 @@ services:
       WORDPRESS_DB_USER: ${MYSQL_USER:-wordpress}
       WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD:-wordpress}
       WORDPRESS_DB_NAME: ${MYSQL_DATABASE:-wordpress}
+    labels:
+      - traefik.enable=false
     volumes:
       - wordpress:/var/www/html
     networks:
@@ -45,6 +49,7 @@ services:
       - ./nginx-conf:/etc/nginx/conf.d
     networks:
       - internal
+      - web
 
 volumes:
   wordpress:
