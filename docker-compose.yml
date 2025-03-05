@@ -7,10 +7,10 @@ services:
     env_file: .env
     environment:
       # env or default
-        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
-        MYSQL_DATABASE: ${MYSQL_DATABASE:-wordpress}
-        MYSQL_USER: ${MYSQL_USER:-wordpress}
-        MYSQL_PASSWORD: ${MYSQL_PASSWORD:-wordpress}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-wordpress}
+      MYSQL_USER: ${MYSQL_USER:-wordpress}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-wordpress}
     labels:
       - traefik.enable=false
     volumes:
